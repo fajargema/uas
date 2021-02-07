@@ -52,9 +52,9 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+                <div class="sidebar-brand-icon">
+                    <i class="fas fa-book-open"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Lapor!</div>
             </a>
@@ -195,7 +195,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <i class="fas fa-pen fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -219,7 +219,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            <i class="fas fa-pencil-alt fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -239,7 +239,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fas fa-pen-alt fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>

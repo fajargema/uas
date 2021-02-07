@@ -46,8 +46,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    <i class="fas fa-book-open"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Lapor!</div>
             </a>
@@ -201,9 +201,9 @@
                                             <td>
                                                 <?php
                                                     if($r['stat'] == 0){
-                                                        echo '<span class="badge badge-warning">Pending</span>';
+                                                        echo '<span class="badge badge-warning">Proses</span>';
                                                     } else if ($r['stat'] == 1) {
-                                                        echo '<span class="badge badge-primary">Proses</span>';
+                                                        echo '<span class="badge badge-success">Selesai</span>';
                                                     } else {
                                                         echo 'Tidak di ketahui';
                                                     }
@@ -215,12 +215,12 @@
                                                     <input type="hidden" name="stat" value="<?php echo $r['stat']; ?>">
                                                     <?php
                                                     if($r['stat'] == 0){
-                                                        echo '<button type="submit" class="btn btn-sm btn-primary" name="submit"> <i class="fas fa-check-square"></i> </button> |';  
+                                                        echo '<button type="submit" class="btn btn-sm btn-success" name="submit"> <i class="fas fa-check-square"></i> </button> |';  
                                                     } else {
                                                         echo ' ';
                                                     }
                                                     ?>
-                                                    <a class="btn btn-success btn-sm" href="detail.php?id_pengaduan=<?php echo $r['id_pengaduan']; ?>"> <i class="fas fa-trash"></i></a>
+                                                    <a class="btn btn-primary btn-sm" href="detail.php?id_pengaduan=<?php echo $r['id_pengaduan']; ?>"> <i class="fas fa-info"></i></a>
                                                      | 
                                                     <a class="btn btn-danger btn-sm" href="hapus.php?id_pengaduan=<?php echo $r['id_pengaduan']; ?>"> <i class="fas fa-trash"></i></a>
                                                 </form>
