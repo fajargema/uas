@@ -154,33 +154,60 @@
                         <?php
                         $id = $_GET['id_pengaduan'];
                         $query = mysqli_query($db, "SELECT * FROM pengaduan, kategori where id_pengaduan='$id'");
+
                         $d = mysqli_fetch_row($query);
-                        
-                        while($data = mysqli_fetch_array($getkategori)){
+                        $idkat = $d[6];
+
+                        $getkategori = mysqli_query($db, "SELECT * FROM kategori where id='$idkat'");
+                        $k = mysqli_fetch_row($getkategori);
                         ?>
                             <table border="0">
                                 <tr>
                                     <td>Judul</td>
                                     <td>:</td>
-                                    <td><?php echo $data['judul'] ?></td>
+                                    <td><?php echo $d[1]; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Isi</td>
                                     <td>:</td>
-                                    <td><?php echo $data['isi'] ?></td>
+                                    <td><?php echo $d[2]; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Tanggal Kejadin</td>
                                     <td>:</td>
-                                    <td><?php echo $data['tgl_terjadi'] ?></td>
+                                    <td><?php echo date('l, d-m-Y', strtotime($d[3])); ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Lokasi Kejadian</td>
+                                    <td>Lokasi</td>
                                     <td>:</td>
-                                    <td><?php echo $data['lokasi'] ?></td>
+                                    <td><?php echo $d[4]; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Dikirim</td>
+                                    <td>:</td>
+                                    <td><?php echo date('l, d-m-Y', strtotime($d[5])); ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Kategori</td>
+                                    <td>:</td>
+                                    <td><?php echo $k[1]; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Status</td>
+                                    <td>:</td>
+                                    <td>
+                                        <?php
+                                        if($d[7] == "0"){
+                                            echo '<span class="badge badge-warning">Pending</span>';
+                                        } else if ($d[6] == 1) {
+                                            echo '<span class="badge badge-primary">Proses</span>';
+                                        } else {
+                                            echo 'Tidak di ketahui';
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                             </table>
-                        <?php } ?>
                         </div>
                     </div>
 
