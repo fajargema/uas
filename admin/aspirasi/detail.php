@@ -148,7 +148,13 @@
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <a href="tambah.php" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</a>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="../index.php"><i class="fas fa-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="index.php">Data Aspirasi</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Detail Data Aspirasi</li>
+                                </ol>
+                            </nav>
                         </div>
                         <div class="card-body">
                         <?php

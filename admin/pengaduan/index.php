@@ -148,7 +148,12 @@
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="../index.php"><i class="fas fa-home"></i></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Data Pengaduan</li>
+                                </ol>
+                            </nav>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -183,7 +188,16 @@
                                                     }
                                                 ?>
                                             </td>
-                                            <td><?php echo $r['nama']; ?></td>
+                                            <td>
+                                                <?php
+                                                    if (strlen($r["nama"])<=1) {
+                                                        echo $r["nama"];
+                                                    } else{
+                                                        $y=substr($r["nama"],0,20) . '...';
+                                                        echo $y;
+                                                    }
+                                                ?>
+                                            </td>
                                             <td>
                                                 <?php
                                                     if($r['stat'] == 0){

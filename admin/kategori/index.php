@@ -148,7 +148,13 @@
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <a href="tambah.php" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</a>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="../index.php"><i class="fas fa-home"></i></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Data Kategori</li>
+                                </ol>
+                            </nav>
+                            <a href="tambah.php" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data Kategori</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -157,7 +163,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Nama Kategori</th>
-                                            <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>

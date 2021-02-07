@@ -153,6 +153,12 @@
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                     </div>
 
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../index.php"><i class="fas fa-home"></i> /</a></li>
+                        </ol>
+                    </nav>
+
                     <!-- Content Row -->
                     <div class="row">
 
