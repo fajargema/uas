@@ -158,7 +158,6 @@
                                             <th>#</th>
                                             <th>Judul</th>
                                             <th>Isi</th>
-                                            <th>Tanggal Kejadian</th>
                                             <th>Kategori</th>
                                             <th>Status</th>
                                             <th>Action</th>
@@ -184,7 +183,6 @@
                                                     }
                                                 ?>
                                             </td>
-                                            <td><?php echo date('d-m-Y', strtotime($r['tgl_dikirim'])); ?></td>
                                             <td>
                                                 <?php
                                                     if (strlen($r["nama"])<=1) {
@@ -212,11 +210,12 @@
                                                     <input type="hidden" name="stat" value="<?php echo $r['stat']; ?>">
                                                     <?php
                                                     if($r['stat'] == 0){
-                                                        echo '<button type="submit" class="btn btn-sm btn-primary" name="submit"> <i class="fas fa-check-square"></i> </button>';
+                                                        echo '<button type="submit" class="btn btn-sm btn-primary" name="submit"> <i class="fas fa-check-square"></i> </button> |';
                                                     } else {
                                                         echo ' ';
                                                     }
                                                     ?>
+                                                    <a class="btn btn-success btn-sm" href="detail.php?id_informasi=<?php echo $r['id_informasi']; ?>"> <i class="fas fa-trash"></i></a>
                                                      | 
                                                     <a class="btn btn-danger btn-sm" href="hapus.php?id_informasi=<?php echo $r['id_informasi']; ?>"> <i class="fas fa-trash"></i></a>
                                                 </form>

@@ -20,7 +20,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Pengaduan</title>
+    <title>Detail Data Aspirasi</title>
 
     <!-- Custom fonts for this template-->
     <link href="../../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -68,14 +68,14 @@
                     <span>Kategori</span></a>
             </li>
 
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php">
+            <li class="nav-item">
+                <a class="nav-link" href="../pengaduan/index.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Pengaduan</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="../aspirasi/index.php">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Aspirasi</span></a>
             </li>
@@ -143,79 +143,61 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Data Pengaduan</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Detail Data Aspirasi</h1>
                     </div>
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</button>
+                            <a href="tambah.php" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</a>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Judul</th>
-                                            <th>Isi</th>
-                                            <th>Kategori</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                        $data=mysqli_query($db,"SELECT * FROM pengaduan, kategori where pengaduan.id_kategori=kategori.id");
-                                        // $ambildata=mysqli_query($conect, "SELECT * FROM pengaduan, kategori where pengaduan.id_kategori=kategori.id order by id desc");
-                                        $no=1;
-                                        while ($r=mysqli_fetch_array($data)) {
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $no++ ?></td>
-                                            <td><?php echo $r['judul']; ?></td>
-                                            <td>
-                                                <?php
-                                                    if (strlen($r["isi"])<=1) {
-                                                        echo $r["isi"];
-                                                    } else{
-                                                        $y=substr($r["isi"],0,20) . '...';
-                                                        echo $y;
-                                                    }
-                                                ?>
-                                            </td>
-                                            <td><?php echo $r['nama']; ?></td>
-                                            <td>
-                                                <?php
-                                                    if($r['stat'] == 0){
-                                                        echo '<span class="badge badge-warning">Pending</span>';
-                                                    } else if ($r['stat'] == 1) {
-                                                        echo '<span class="badge badge-primary">Proses</span>';
-                                                    } else {
-                                                        echo 'Tidak di ketahui';
-                                                    }
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <form action="status.php" method="post">
-                                                    <input type="hidden" name="id_pengaduan" value="<?php echo $r['id_pengaduan']; ?>">
-                                                    <input type="hidden" name="stat" value="<?php echo $r['stat']; ?>">
-                                                    <?php
-                                                    if($r['stat'] == 0){
-                                                        echo '<button type="submit" class="btn btn-sm btn-primary" name="submit"> <i class="fas fa-check-square"></i> </button> |';  
-                                                    } else {
-                                                        echo ' ';
-                                                    }
-                                                    ?>
-                                                    <a class="btn btn-success btn-sm" href="detail.php?id_pengaduan=<?php echo $r['id_pengaduan']; ?>"> <i class="fas fa-trash"></i></a>
-                                                     | 
-                                                    <a class="btn btn-danger btn-sm" href="hapus.php?id_pengaduan=<?php echo $r['id_pengaduan']; ?>"> <i class="fas fa-trash"></i></a>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    <?php } ?>    
-                                    </tbody>
-                                </table>
-                            </div>
+                        <?php
+                        $id = $_GET['id_aspirasi'];
+                        $query = mysqli_query($db, "SELECT * FROM aspirasi, kategori where id_aspirasi='$id'");
+
+                        $d = mysqli_fetch_row($query);
+                        $idkat = $d[4];
+
+                        $getkategori = mysqli_query($db, "SELECT * FROM kategori where id='$idkat'");
+                        $k = mysqli_fetch_row($getkategori);
+                        ?>
+                            <table border="0">
+                                <tr>
+                                    <td>Judul</td>
+                                    <td>:</td>
+                                    <td><?php echo $d[1]; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Isi</td>
+                                    <td>:</td>
+                                    <td><?php echo $d[2]; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Dikirim</td>
+                                    <td>:</td>
+                                    <td><?php echo date('l, d-m-Y', strtotime($d[3])); ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Kategori</td>
+                                    <td>:</td>
+                                    <td><?php echo $k[1]; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Status</td>
+                                    <td>:</td>
+                                    <td>
+                                        <?php
+                                        if($d[5] == "0"){
+                                            echo '<span class="badge badge-warning">Pending</span>';
+                                        } else if ($d[6] == 1) {
+                                            echo '<span class="badge badge-primary">Proses</span>';
+                                        } else {
+                                            echo 'Tidak di ketahui';
+                                        }
+                                        ?>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
 
