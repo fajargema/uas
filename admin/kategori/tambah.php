@@ -20,7 +20,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Pengaduan</title>
+    <title>Tambah Kategori</title>
 
     <!-- Custom fonts for this template-->
     <link href="../../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -72,6 +72,18 @@
                 <a class="nav-link" href="../pengaduan/index.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Pengaduan</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="../aspirasi/index.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Aspirasi</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="../informasi/index.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Permintaan Informasi</span></a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
