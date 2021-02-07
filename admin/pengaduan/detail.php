@@ -155,8 +155,8 @@
                         $id = $_GET['id_pengaduan'];
                         $query = mysqli_query($db, "SELECT * FROM pengaduan, kategori where id_pengaduan='$id'");
                         $d = mysqli_fetch_row($query);
-                        echo "$d[0] $d[1] $d[2] $d[3] $d[4] $d[6]";
-                        while($data = mysqli_fetch_array($query)){
+                        
+                        while($data = mysqli_fetch_array($getkategori)){
                         ?>
                             <table border="0">
                                 <tr>
