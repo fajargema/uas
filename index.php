@@ -1,4 +1,15 @@
+<?php
+	include 'config.php';
 
+    $pengaduan = mysqli_query($db, "SELECT * FROM pengaduan");
+    $aspirasi = mysqli_query($db, "SELECT * FROM aspirasi");
+    $informasi = mysqli_query($db, "SELECT * FROM informasi");
+
+    $pen = mysqli_num_rows($pengaduan);
+    $asp = mysqli_num_rows($aspirasi);
+    $inf = mysqli_num_rows($informasi);
+    $total = $pen+$asp+$inf;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +56,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.html">LAPOR!</a></h1>
+      <h1 class="logo mr-auto"><a href="index.php">LAPOR!</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -55,8 +66,8 @@
           <li class="drop-down"><a href="">Lacak Laporan</a>
             <ul>
               <li><a href="cari-pengaduan.php">Pengaduan</a></li>
-              <li><a href="#">Aspirasi</a></li>
-              <li><a href="#">Permintaan Informasi</a></li>
+              <li><a href="cari-aspirasi.php">Aspirasi</a></li>
+              <li><a href="cari-informasi.php">Permintaan Informasi</a></li>
             </ul>
           </li>
 
@@ -188,29 +199,29 @@
 
           <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
-              <span data-toggle="counter-up">65</span>
-              <p>Happy Clients</p>
+              <span data-toggle="counter-up"><?php echo $total; ?></span>
+              <p>Total Laporan</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
-              <span data-toggle="counter-up">85</span>
-              <p>Projects</p>
+              <span data-toggle="counter-up"><?php echo $pen; ?></span>
+              <p>Pengaduan</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
-              <span data-toggle="counter-up">12</span>
-              <p>Years of experience</p>
+              <span data-toggle="counter-up"><?php echo $asp; ?></span>
+              <p>Aspirasi</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
-              <span data-toggle="counter-up">15</span>
-              <p>Awards</p>
+              <span data-toggle="counter-up"><?php echo $inf; ?></span>
+              <p>Permintaan Informasi</p>
             </div>
           </div>
 
@@ -235,15 +246,13 @@
           <!-- You can delete the links only if you purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->
           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          Template by <a href="https://bootstrapmade.com/">BootstrapMade</a> Redesigned by Fajar Gema
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://fajargema.my.id/" rel="" class="twitter"><i class="bx bxl-wordpress"></i></a>
+        <a href="https://github.com/fajargema/" class="facebook"><i class="bx bxl-github"></i></a>
+        <a href="https://instagram.com/fajargema" class="instagram"><i class="bx bxl-instagram"></i></a>
       </div>
     </div>
   </footer><!-- End Footer -->
