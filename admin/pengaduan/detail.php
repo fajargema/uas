@@ -218,6 +218,13 @@
                                         ?>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>Lampiran</td>
+                                    <td>:</td>
+                                    <td>
+                                        <img src="../../assets/img/pengaduan/<?php echo $d[9]; ?>" style="width: 700px;float: left;margin-bottom: 5px;">
+                                    </td>
+                                </tr>
                             </table>
                         </div>
                     </div>

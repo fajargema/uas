@@ -208,6 +208,13 @@
                                         ?>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>Lampiran</td>
+                                    <td>:</td>
+                                    <td>
+                                        <img src="../../assets/img/aspirasi/<?php echo $d[7]; ?>" style="width: 700px;float: left;margin-bottom: 5px;">
+                                    </td>
+                                </tr>
                             </table>
                         </div>
                     </div>
