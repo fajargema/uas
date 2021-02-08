@@ -82,17 +82,17 @@
             <p>Pilih Tipe Laporan</p>
               <div class="row">
                 <div class="col-6 col-md-4">
-                    <a href="/" class="btn-aktip">PENGADUAN</a>
+                    <a href="index.php" class="btn-tiga">PENGADUAN</a>
                 </div>
                 <div class="col-6 col-md-4">
-                    <a href="aspirasi.php" class="btn-tiga">ASPIRASI</a>
+                    <a href="aspirasi.php" class="btn-aktip">ASPIRASI</a>
                 </div>
                 <div class="col-6 col-md-4">
                     <a href="informasi.php" class="btn-tiga">INFORMASI</a>
                 </div>
               </div>
 
-            <form action="proses_pengaduan.php" method="post" enctype="multipart/form-data">
+            <form action="proses_aspirasi.php" method="post" enctype="multipart/form-data">
 
               <div class="form-group pt-5">
                 <label for="judul">Judul :</label>
@@ -102,16 +102,6 @@
               <div class="form-group">
                 <label for="isi">Isi :</label>
                 <textarea class="form-control" name="isi" rows="6" placeholder="Ketik Isi Laporan Anda"></textarea>
-              </div>
-
-              <div class="form-group">
-                <label for="tgl_terjadi">Tanggal Kejadian :</label>
-                <input type="date" class="form-control" name="tgl_terjadi">
-              </div>
-
-              <div class="form-group">
-                <label for="lokasi">Lokasi Kejadian :</label>
-                <input type="text" class="form-control" name="lokasi" placeholder="Ketik Lokasi Kejadian">
               </div>
 
               <div class="form-group">
@@ -129,8 +119,8 @@
               </div>
 
               <div class="form-group">
-                  <label for="gambar_produk">Upload Lampiran</label>
-                  <input type="file" class="form-control" name="gambar_produk" id="gambar_produk">
+                  <label for="gambar">Upload Lampiran</label>
+                  <input type="file" class="form-control" name="gambar" id="gambar">
               </div>
               
               <input type="hidden" name="tgl_dikirim" value="<?php echo date("Y-m-d"); ?>"">
