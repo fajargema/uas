@@ -95,19 +95,19 @@
 
         <div class="col-lg-8 col-md-10 mt-4 mt-md-0">
           <div class="icon-box">
-            <div class="bage">
+            <div class="bage text-wrap">
               <p>Sampaikan Laporan Anda</p>
             </div>
             <p>Pilih Tipe Laporan</p>
               <div class="row">
                 <div class="col-6 col-md-4">
-                    <a href="index.php" class="btn-tiga">PENGADUAN</a>
+                    <a href="index.php" class="btn btn-tiga">PENGADUAN</a>
                 </div>
                 <div class="col-6 col-md-4">
-                    <a href="aspirasi.php" class="btn-aktip">ASPIRASI</a>
+                    <a href="aspirasi.php" class="btn btn-aktip">ASPIRASI</a>
                 </div>
                 <div class="col-6 col-md-4">
-                    <a href="informasi.php" class="btn-tiga">INFORMASI</a>
+                    <a href="informasi.php" class="btn btn-inform">PERMINTAAN INFORMASI</a>
                 </div>
               </div>
 
