@@ -45,7 +45,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-book-open"></i>
                 </div>
@@ -126,7 +126,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a href="logout.php">
+                                <a href="../logout.php">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -162,36 +162,41 @@
                         $query = mysqli_query($db, "SELECT * FROM pengaduan, kategori where id_pengaduan='$id'");
 
                         $d = mysqli_fetch_row($query);
-                        $idkat = $d[6];
+                        $idkat = $d[7];
 
                         $getkategori = mysqli_query($db, "SELECT * FROM kategori where id='$idkat'");
                         $k = mysqli_fetch_row($getkategori);
                         ?>
                             <table border="0">
                                 <tr>
-                                    <td>Judul</td>
+                                    <td>Kode</td>
                                     <td>:</td>
                                     <td><?php echo $d[1]; ?></td>
-                                </tr>
+                                </tr> 
                                 <tr>
-                                    <td>Isi</td>
+                                    <td>Judul</td>
                                     <td>:</td>
                                     <td><?php echo $d[2]; ?></td>
                                 </tr>
                                 <tr>
+                                    <td>Isi</td>
+                                    <td>:</td>
+                                    <td><?php echo $d[3]; ?></td>
+                                </tr>
+                                <tr>
                                     <td>Tanggal Kejadin</td>
                                     <td>:</td>
-                                    <td><?php echo date('l, d-m-Y', strtotime($d[3])); ?></td>
+                                    <td><?php echo date('l, d-m-Y', strtotime($d[4])); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Lokasi</td>
                                     <td>:</td>
-                                    <td><?php echo $d[4]; ?></td>
+                                    <td><?php echo $d[5]; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Dikirim</td>
                                     <td>:</td>
-                                    <td><?php echo date('l, d-m-Y', strtotime($d[5])); ?></td>
+                                    <td><?php echo date('l, d-m-Y', strtotime($d[6])); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Kategori</td>
@@ -203,10 +208,10 @@
                                     <td>:</td>
                                     <td>
                                         <?php
-                                        if($d[7] == "0"){
+                                        if($d[8] == "0"){
                                             echo '<span class="badge badge-warning">Pending</span>';
-                                        } else if ($d[6] == 1) {
-                                            echo '<span class="badge badge-primary">Proses</span>';
+                                        } else if ($d[8] == 1) {
+                                            echo '<span class="badge badge-success">Selesai</span>';
                                         } else {
                                             echo 'Tidak di ketahui';
                                         }
