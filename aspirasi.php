@@ -92,9 +92,28 @@
                 </div>
               </div>
 
-            <form action="proses_aspirasi.php" method="post" enctype="multipart/form-data">
+              <?php
+              include 'config.php';
 
+              $query = mysqli_query($db, "SELECT max(kode) as kodeTerbesar FROM aspirasi");
+              $data = mysqli_fetch_array($query);
+              $kodeaspirasi = $data['kodeTerbesar'];
+            
+              $urutan = (int) substr($kodeaspirasi, 13, 4);
+              $u = $urutan+1;
+        
+              $huruf = "PEN-";
+              $tanggal = date("dmY");
+              $kodeaspirasi = $huruf . $tanggal . sprintf("%004s", $u);
+              ?>
+
+            <form action="proses_aspirasi.php" method="post" enctype="multipart/form-data">
               <div class="form-group pt-5">
+                <label for="judul"><b>Kode digunakan untuk melacak laporan</b></label>
+                <input type="text" class="form-control" name="kode" value="<?php echo $kodeaspirasi ?>" readonly>
+              </div>
+
+              <div class="form-group">
                 <label for="judul">Judul :</label>
                 <input type="text" class="form-control" name="judul" placeholder="Ketik Judul Laporan Anda">
               </div>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 // membuat koneksi 
-include 'config.php';
+include '../config.php';
 
 // Deklarasi variable
 $username = $_POST['username'];
@@ -23,7 +23,7 @@ if(isset($login)){
 			$_SESSION['nama'] = $r['nama'];
 			$_SESSION['username'] = $r['user_login'];
 
-			header("location:admin/index.php");
+			header("location:index.php");
 		}else{
 
 			header("location:login.php");

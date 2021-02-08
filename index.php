@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,11 +52,18 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="index.html">Home</a></li>
+          <li class="drop-down"><a href="">Lacak Laporan</a>
+            <ul>
+              <li><a href="#">Pengaduan</a></li>
+              <li><a href="#">Aspirasi</a></li>
+              <li><a href="#">Permintaan Informasi</a></li>
+            </ul>
+          </li>
 
         </ul>
       </nav><!-- .nav-menu -->
 
-      <a href="#about" class="get-started-btn scrollto">Get Started</a>
+      <a href="#inti" class="get-started-btn scrollto">Mulai</a>
 
     </div>
   </header><!-- End Header -->
@@ -75,14 +83,14 @@
         </div>
 
         <div class="col-lg-8 col-md-10 mt-4 mt-md-0">
-          <div class="icon-box">
+          <div class="icon-box" id="inti">
             <div class="bage">
               <p>Sampaikan Laporan Anda</p>
             </div>
             <p>Pilih Tipe Laporan</p>
               <div class="row">
                 <div class="col-6 col-md-4">
-                    <a href="/" class="btn-aktip">PENGADUAN</a>
+                    <a href="index.php" class="btn-aktip">PENGADUAN</a>
                 </div>
                 <div class="col-6 col-md-4">
                     <a href="aspirasi.php" class="btn-tiga">ASPIRASI</a>
@@ -92,9 +100,29 @@
                 </div>
               </div>
 
+              <?php
+              include 'config.php';
+
+              $query = mysqli_query($db, "SELECT max(kode) as kodeTerbesar FROM pengaduan");
+              $data = mysqli_fetch_array($query);
+              $kodepengaduan = $data['kodeTerbesar'];
+            
+              $urutan = (int) substr($kodepengaduan, 13, 4);
+              $u = $urutan+1;
+        
+              $huruf = "PEN-";
+              $tanggal = date("dmY");
+              $kodepengaduan = $huruf . $tanggal . sprintf("%004s", $u);
+              ?>
+
             <form action="proses_pengaduan.php" method="post" enctype="multipart/form-data">
 
               <div class="form-group pt-5">
+                <label for="judul"><b>Kode digunakan untuk melacak laporan</b></label>
+                <input type="text" class="form-control" name="kode" value="<?php echo $kodepengaduan ?>" readonly>
+              </div>
+
+              <div class="form-group">
                 <label for="judul">Judul :</label>
                 <input type="text" class="form-control" name="judul" placeholder="Ketik Judul Laporan Anda">
               </div>

@@ -6,7 +6,7 @@
 		$username = $_SESSION['username'];
 		$nama = $_SESSION['nama'];
 	}else{
-		header("location:../login.php");
+		header("location:login.php");
 	}
 
     $kategori = mysqli_query($db, "SELECT * FROM kategori");

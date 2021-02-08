@@ -3,6 +3,7 @@
 include 'config.php';
 
 	// membuat variabel untuk menampung data dari form
+  $kode   = $_POST['kode'];
   $judul   = $_POST['judul'];
   $isi     = $_POST['isi'];
   $tgl_dikirim    = $_POST['tgl_dikirim'];
@@ -22,7 +23,7 @@ if($gambar != "") {
         if(in_array($ekstensi, $ekstensi_diperbolehkan) === true)  {     
                 move_uploaded_file($file_tmp, 'assets/img/informasi/'.$nama_gambar_baru); //memindah file gambar ke folder gambar
                   // jalankan query INSERT untuk menambah data ke database pastikan sesuai urutan (id tidak perlu karena dibikin otomatis)
-                  $query = "INSERT INTO informasi (judul, isi, tgl_dikirim, stat, id_kategori, gambar) VALUES ('$judul', '$isi', '$tgl_dikirim', '$stat', '$id_kategori', '$nama_gambar_baru')";
+                  $query = "INSERT INTO informasi (kode, judul, isi, tgl_dikirim, stat, id_kategori, gambar) VALUES ('$kode', '$judul', '$isi', '$tgl_dikirim', '$stat', '$id_kategori', '$nama_gambar_baru')";
                   $result = mysqli_query($db, $query);
                   // periska query apakah ada error
                   if(!$result){
@@ -39,7 +40,7 @@ if($gambar != "") {
                 echo "<script>alert('Ekstensi gambar yang boleh hanya jpg, png dan jpeg.');window.location='informasi.php';</script>";
             }
 } else {
-    $query = "INSERT INTO informasi (judul, isi, tgl_dikirim, stat, id_kategori, gambar) VALUES ('$judul', '$isi', '$tgl_dikirim', '$stat', '$id_kategori', null)";
+    $query = "INSERT INTO informasi (kode, judul, isi, tgl_dikirim, stat, id_kategori, gambar) VALUES ('$kode', '$judul', '$isi', '$tgl_dikirim', '$stat', '$id_kategori', null)";
                   $result = mysqli_query($db, $query);
                   // periska query apakah ada error
                   if(!$result){

@@ -3,6 +3,7 @@
 include 'config.php';
 
 	// membuat variabel untuk menampung data dari form
+  $kode   = $_POST['kode'];
   $judul   = $_POST['judul'];
   $isi     = $_POST['isi'];
   $tgl_terjadi    = $_POST['tgl_terjadi'];
@@ -24,7 +25,7 @@ if($gambar_produk != "") {
         if(in_array($ekstensi, $ekstensi_diperbolehkan) === true)  {     
                 move_uploaded_file($file_tmp, 'assets/img/pengaduan/'.$nama_gambar_baru); //memindah file gambar ke folder gambar
                   // jalankan query INSERT untuk menambah data ke database pastikan sesuai urutan (id tidak perlu karena dibikin otomatis)
-                  $query = "INSERT INTO pengaduan (judul, isi, tgl_terjadi, lokasi, tgl_dikirim, stat, id_kategori, gambar_produk) VALUES ('$judul', '$isi', '$tgl_terjadi', '$lokasi', '$tgl_dikirim', '$stat', '$id_kategori', '$nama_gambar_baru')";
+                  $query = "INSERT INTO pengaduan (kode, judul, isi, tgl_terjadi, lokasi, tgl_dikirim, stat, id_kategori, gambar_produk) VALUES ('$kode', '$judul', '$isi', '$tgl_terjadi', '$lokasi', '$tgl_dikirim', '$stat', '$id_kategori', '$nama_gambar_baru')";
                   $result = mysqli_query($db, $query);
                   // periska query apakah ada error
                   if(!$result){
@@ -41,7 +42,7 @@ if($gambar_produk != "") {
                 echo "<script>alert('Ekstensi gambar yang boleh hanya jpg, png dan jpeg.');window.location='index.php';</script>";
             }
 } else {
-    $query = "INSERT INTO pengaduan (judul, isi, tgl_terjadi, lokasi, tgl_dikirim, stat, id_kategori, gambar_produk) VALUES ('$judul', '$isi', '$tgl_terjadi', '$lokasi', '$tgl_dikirim', '$stat', '$id_kategori', null)";
+    $query = "INSERT INTO pengaduan (kode, judul, isi, tgl_terjadi, lokasi, tgl_dikirim, stat, id_kategori, gambar_produk) VALUES ('$kode', '$judul', '$isi', '$tgl_terjadi', '$lokasi', '$tgl_dikirim', '$stat', '$id_kategori', null)";
                   $result = mysqli_query($db, $query);
                   // periska query apakah ada error
                   if(!$result){
