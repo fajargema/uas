@@ -160,7 +160,7 @@
                             <form action="proses_tambah.php" method="post">
                                 <div class="form-group">
                                     <label for="nama">Nama Kategori</label>
-                                    <input type="text" class="form-control" name="nama" id="nama">
+                                    <input type="text" class="form-control" name="nama" id="nama" required>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary" name="submit">Tambah Data</button>
