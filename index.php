@@ -129,33 +129,33 @@
             <form action="proses_pengaduan.php" method="post" enctype="multipart/form-data">
 
               <div class="form-group pt-5">
-                <label for="judul"><b>Kode digunakan untuk melacak laporan</b></label>
+                <label for="judul"><b>Kode digunakan untuk melacak Pengaduan</b></label>
                 <input type="text" class="form-control" name="kode" value="<?php echo $kodepengaduan ?>" readonly>
               </div>
 
               <div class="form-group">
-                <label for="judul">Judul :</label>
-                <input type="text" class="form-control" name="judul" placeholder="Ketik Judul Laporan Anda">
+                <label for="judul">Judul*</label>
+                <input type="text" class="form-control" name="judul" placeholder="Ketik Judul Laporan Anda" required>
               </div>
 
               <div class="form-group">
-                <label for="isi">Isi :</label>
-                <textarea class="form-control" name="isi" rows="6" placeholder="Ketik Isi Laporan Anda"></textarea>
+                <label for="isi">Isi*</label>
+                <textarea class="form-control" name="isi" rows="6" placeholder="Ketik Isi Laporan Anda" required></textarea>
               </div>
 
               <div class="form-group">
-                <label for="tgl_terjadi">Tanggal Kejadian :</label>
-                <input type="date" class="form-control" name="tgl_terjadi">
+                <label for="tgl_terjadi">Tanggal Kejadian*</label>
+                <input type="date" class="form-control" name="tgl_terjadi" required>
               </div>
 
               <div class="form-group">
-                <label for="lokasi">Lokasi Kejadian :</label>
-                <input type="text" class="form-control" name="lokasi" placeholder="Ketik Lokasi Kejadian">
+                <label for="lokasi">Lokasi Kejadian*</label>
+                <input type="text" class="form-control" name="lokasi" placeholder="Ketik Lokasi Kejadian" required>
               </div>
 
               <div class="form-group">
-                <label for="kategori">Kategori :</label>
-                <select name="id_kategori" class="form-control">
+                <label for="kategori">Kategori*</label>
+                <select name="id_kategori" class="form-control" required>
                   <option value="">Pilih Kategori Laporan Anda</option>
                   <?php
                       include 'config.php';
@@ -168,8 +168,8 @@
               </div>
 
               <div class="form-group">
-                  <label for="gambar_produk">Upload Lampiran</label>
-                  <input type="file" class="form-control" name="gambar_produk" id="gambar_produk">
+                  <label for="gambar">Upload Lampiran</label>
+                  <input type="file" class="form-control" name="gambar" id="gambar">
               </div>
               
               <input type="hidden" name="tgl_dikirim" value="<?php echo date("Y-m-d"); ?>"">

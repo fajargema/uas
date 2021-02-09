@@ -129,23 +129,23 @@
             <form action="proses_informasi.php" method="post" enctype="multipart/form-data">
 
               <div class="form-group pt-5">
-                <label for="judul"><b>Kode digunakan untuk melacak laporan</b></label>
+                <label for="judul"><b>Kode digunakan untuk melacak Permintaan Informasi</b></label>
                 <input type="text" class="form-control" name="kode" value="<?php echo $kodeinformasi ?>" readonly>
               </div>
 
               <div class="form-group">
-                <label for="judul">Judul :</label>
-                <input type="text" class="form-control" name="judul" placeholder="Ketik Judul Laporan Anda">
+                <label for="judul">Judul*</label>
+                <input type="text" class="form-control" name="judul" placeholder="Ketik Judul Laporan Anda" required>
               </div>
 
               <div class="form-group">
-                <label for="isi">Isi :</label>
-                <textarea class="form-control" name="isi" rows="6" placeholder="Ketik Isi Laporan Anda"></textarea>
+                <label for="isi">Isi*</label>
+                <textarea class="form-control" name="isi" rows="6" placeholder="Ketik Isi Laporan Anda" required></textarea>
               </div>
 
               <div class="form-group">
-                <label for="kategori">Kategori :</label>
-                <select name="id_kategori" class="form-control">
+                <label for="kategori">Kategori*</label>
+                <select name="id_kategori" class="form-control" required>
                   <option value="">Pilih Kategori Laporan Anda</option>
                   <?php
                       include 'config.php';
@@ -158,8 +158,8 @@
               </div>
 
               <div class="form-group">
-                <label for="no_wa">Nomor Whatsapp :</label>
-                <input type="int" class="form-control" name="no_wa" placeholder="Ketik Nomor Whatsapp Anda">
+                <label for="no_wa">Nomor Whatsapp*</label>
+                <input type="int" class="form-control" name="no_wa" placeholder="Ketik Nomor Whatsapp Anda" required>
               </div>
 
               <div class="form-group">

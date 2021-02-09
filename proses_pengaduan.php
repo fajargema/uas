@@ -11,21 +11,21 @@ include 'config.php';
   $tgl_dikirim    = $_POST['tgl_dikirim'];
   $stat    = $_POST['stat'];
   $id_kategori    = $_POST['id_kategori'];
-  $gambar_produk = $_FILES['gambar_produk']['name'];
+  $gambar = $_FILES['gambar']['name'];
 
 if (isset($_POST['simpan'])) {
 //cek dulu jika ada gambar produk jalankan coding ini
-if($gambar_produk != "") {
+if($gambar != "") {
   $ekstensi_diperbolehkan = array('png','jpg','jpeg'); //ekstensi file gambar yang bisa diupload 
-  $x = explode('.', $gambar_produk); //memisahkan nama file dengan ekstensi yang diupload
+  $x = explode('.', $gambar); //memisahkan nama file dengan ekstensi yang diupload
   $ekstensi = strtolower(end($x));
-  $file_tmp = $_FILES['gambar_produk']['tmp_name'];   
+  $file_tmp = $_FILES['gambar']['tmp_name'];   
   $angka_acak     = rand(1,999);
-  $nama_gambar_baru = $angka_acak.'-'.$gambar_produk; //menggabungkan angka acak dengan nama file sebenarnya
+  $nama_gambar_baru = $angka_acak.'-'.$gambar; //menggabungkan angka acak dengan nama file sebenarnya
         if(in_array($ekstensi, $ekstensi_diperbolehkan) === true)  {     
                 move_uploaded_file($file_tmp, 'assets/img/pengaduan/'.$nama_gambar_baru); //memindah file gambar ke folder gambar
                   // jalankan query INSERT untuk menambah data ke database pastikan sesuai urutan (id tidak perlu karena dibikin otomatis)
-                  $query = "INSERT INTO pengaduan (kode, judul, isi, tgl_terjadi, lokasi, tgl_dikirim, stat, id_kategori, gambar_produk) VALUES ('$kode', '$judul', '$isi', '$tgl_terjadi', '$lokasi', '$tgl_dikirim', '$stat', '$id_kategori', '$nama_gambar_baru')";
+                  $query = "INSERT INTO pengaduan (kode, judul, isi, tgl_terjadi, lokasi, tgl_dikirim, stat, id_kategori, gambar) VALUES ('$kode', '$judul', '$isi', '$tgl_terjadi', '$lokasi', '$tgl_dikirim', '$stat', '$id_kategori', '$nama_gambar_baru')";
                   $result = mysqli_query($db, $query);
                   // periska query apakah ada error
                   if(!$result){
@@ -42,7 +42,7 @@ if($gambar_produk != "") {
                 echo "<script>alert('Ekstensi gambar yang boleh hanya jpg, png dan jpeg.');window.location='index.php';</script>";
             }
 } else {
-    $query = "INSERT INTO pengaduan (kode, judul, isi, tgl_terjadi, lokasi, tgl_dikirim, stat, id_kategori, gambar_produk) VALUES ('$kode', '$judul', '$isi', '$tgl_terjadi', '$lokasi', '$tgl_dikirim', '$stat', '$id_kategori', null)";
+    $query = "INSERT INTO pengaduan (kode, judul, isi, tgl_terjadi, lokasi, tgl_dikirim, stat, id_kategori, gambar) VALUES ('$kode', '$judul', '$isi', '$tgl_terjadi', '$lokasi', '$tgl_dikirim', '$stat', '$id_kategori', null)";
                   $result = mysqli_query($db, $query);
                   // periska query apakah ada error
                   if(!$result){
