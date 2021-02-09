@@ -222,7 +222,13 @@
                                     <td>Lampiran</td>
                                     <td>:</td>
                                     <td>
-                                        <img src="../../assets/img/pengaduan/<?php echo $d[9]; ?>" style="width: 700px;float: left;margin-bottom: 5px;">
+                                        <?php 
+                                            if($d[9] == null) {
+                                                echo 'Tidak ada Foto';
+                                            } else {
+                                                echo '<img src="../../assets/img/pengaduan/'.$d[9].'" style="width: 700px;float: left;margin-bottom: 5px;">';
+                                            }
+                                        ?>
                                     </td>
                                 </tr>
                             </table>
